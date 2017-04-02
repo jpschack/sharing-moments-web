@@ -1,0 +1,17 @@
+{
+  "name": "sharing-moments-web",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jan-Philipp Schack",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-sass": "^3.1.0",
+    "main-bower-files": "^2.13.1",
+    "wiredep": "^4.0.0"
+  }
+}

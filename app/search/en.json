@@ -1,0 +1,24 @@
+{
+    "SEARCH": {
+        "NAVIGATION": {
+            "USERS": "User",
+            "EVENTS": "Events"
+        },
+        "FILTER": {
+            "EVENTS": {
+                "DATE_FILTER": {
+                    "DATE_FILTER": "Date filter",
+                    "FROM": "from",
+                    "TO": "to"
+                }
+            }
+        },
+        "RESULT": {
+            "EVENTS": {
+                "BY": "by"
+            },
+            "NOUSERS": "No User found for your search.",
+            "NOEVENTS": "No Event found for your search."
+        }
+    }
+}

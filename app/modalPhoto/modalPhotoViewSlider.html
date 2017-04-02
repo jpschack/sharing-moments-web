@@ -1,0 +1,7 @@
+<div class="modal-photo-view-slider">
+    <div uib-carousel active="index" interval="none" no-wrap="false">
+        <div uib-slide ng-repeat="photo in photos track by $index" index="$index">
+            <img class="carousel-img img-responsive" ng-src="{{photo.url}}">
+        </div>
+    </div>
+</div>

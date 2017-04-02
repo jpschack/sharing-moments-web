@@ -1,0 +1,24 @@
+{
+    "SEARCH": {
+        "NAVIGATION": {
+            "USERS": "User",
+            "EVENTS": "Events"
+        },
+        "FILTER": {
+            "EVENTS": {
+                "DATE_FILTER": {
+                    "DATE_FILTER": "Datum",
+                    "FROM": "von",
+                    "TO": "bis"
+                }
+            }
+        },
+        "RESULT": {
+            "EVENTS": {
+                "BY": "von"
+            },
+            "NOUSERS": "Es wurden kein User mit diesen Kriterien gefunden.",
+            "NOEVENTS": "Es wurden kein Event mit diesen Kriterien gefunden."
+        }
+    }
+}

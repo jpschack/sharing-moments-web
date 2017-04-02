@@ -1,0 +1,21 @@
+<div class="signin-page">
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 signin-form-container">
+            <h2 ng-bind="'SIGNIN.HEADLINE' | translate"></h2>
+            <form name="signinForm">
+                <div class="request-error" ng-show="alert">
+                    <div uib-alert ng-class="'alert-' + (alert.type)" close="closeAlert()" ng-bind="alert.msg | translate"></div>
+                </div>
+                <div class="input-group input-field">
+                    <span class="input-group-addon" id="email-addon">@</span>
+                    <input type="text" class="form-control" name="username" placeholder="{{ 'SIGNIN.EMAIL' | translate }}" aria-describedby="email" ng-model="username">
+                </div>
+                <div class="input-field password-group">
+                    <input type="password" class="form-control" name="password" placeholder="{{ 'SIGNIN.PASSWORD' | translate }}" aria-describedby="password" ng-model="password">
+                    <a class="btn btn-primary btn-link pull-right" ui-sref="resetPassword" ng-bind="'SIGNIN.FORGOTPASSWORD' | translate"></a>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block send-button" ng-click="login()" ng-bind="'SIGNIN.SIGNIN' | translate"></button>
+            </form>
+        </div>
+    </div>
+</div>

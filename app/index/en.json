@@ -1,0 +1,63 @@
+{
+    "INDEX": {
+        "HEADLINE": "Share your Moments",
+        "NAVIGATION": {
+            "NEWEVENT": "New Moments",
+            "SEARCH": {
+                "PLACEHOLDER": "Search",
+                "EVENTS": "Events",
+                "USER": "User",
+                "NO_USER_FOUND": "No user found.",
+                "NO_EVENT_FOUND": "No event found."
+            },
+            "PROFILE": "Profil",
+            "ACCOUNT": "Account",
+            "SETTINGS": "Setttings",
+            "SIGNIN": "Signin",
+            "SIGNUP": "Signup",
+            "LOGOUT": "Logout",
+            "NEWMOMENTS": {
+                "HEADLINE": "Share your newest moments now!",
+                "INTRO": "Share your newest moments and add them to events of your life. Add them to excisting events or create new ones.",
+                "SEARCH_PLACEHOLDER": "Search for events",
+                "START_DATE":"Start-Date",
+                "END_DATE": "End-Date",
+                "SEARCH_NO_RESULT": "No Event found.",
+                "DISABLE_EVENT_DATE_SEARCH": "Clear",
+                "CANCEL": "Cancel",
+                "NEW": "New Event"
+            },
+            "NEW_EVENT_MODAL": {
+                "HEADLINE": "Create a new Event",
+                "NAME": {
+                    "NAME": "Name",
+                    "PLACEHOLDER": "Define a name for your event"
+                },
+                "LOCATION": {
+                    "LOCATION": "Location",
+                    "PLACEHOLDER": "Search for a location"
+                },
+                "ENABLE_END_DATE": "multi-day event?",
+                "START_DATE": "Date",
+                "END_DATE": "End date",
+                "DESCRIPTION": "Description",
+                "CANCEL": "Cancel",
+                "CREATE": "Create the event",
+                "VALIDATION": {
+                    "LOCATION": "Please select a listed location."
+                },
+                "REQUEST_ERROR": "Sorry, there seems to be something wrong! Please try again later."
+            }
+        },
+        "FIRST_LOGIN_MODAL": {
+            "HEADLINE": "Welcome to SharingMoments",
+            "INTRO": "Please check your inbox and verify your account by clicking the link in our mail. Thanks!",
+            "BUTTON_TEXT": "Let's go!"
+        },
+        "REGISTRATION_CONFIRM_MODAL": {
+            "HEADLINE": "Account verified",
+            "INTRO": "Your account has been verified. Thanks.",
+            "BUTTON_TEXT": "Ok"
+        }
+    }
+}

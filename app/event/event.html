@@ -1,0 +1,87 @@
+<div class="event-page" infinite-scroll="getPhotos()" infinite-scroll-distance="0" infinite-scroll-disabled="!event.photos">
+    <div class="row event-details-container">
+        <div class="col-xs-12 ol-sm-12 col-md-12">
+            <div class="row">
+                <div class="event-details">
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <div class="event-name" ng-bind="event.name"></div>
+                        <div class="username"><div ng-bind="'EVENT.EVENT_DETAILS.BY'|translate"></div><a ui-sref="user({ id : event.user.id })" ng-bind="' @' + event.user.username"></a></div>
+                        <div class="event-description"><p ng-bind="event.description"></p></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <div class="row event-date-container">
+                            <div class="col-md-12">
+                                <div class="event-date">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    <div ng-bind="event.startDate|date:'longDate'"></div>
+                                    <div ng-show="event.multiDayEvent" ng-bind="' - ' + (event.endDate|date:'longDate')"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row event-location-container" ng-show="googleLocation">
+                            <div class="col-md-12">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <div class="row event-location">
+                                    <div class="" ng-bind="googleLocation.name"></div>
+                                    <a ng-href="{{googleLocation.url}}" target="_blank">
+                                        <div class="" ng-bind="googleLocation.address"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2">
+                        <a ng-if="userHasRightsToEdit" class="btn btn-default btn-block pull-right" ui-sref="editEvent({ id : event.id })" ng-bind="'EVENT.EVENT_DETAILS.EDIT'|translate"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row file-errors" ng-show="invalidPhotos.length > 0">
+        <div uib-alert template-url="app/event/photo-file-upload-alert.html" ng-class="'alert-danger'" close="closeAlert()">
+            <div uib-accordion>
+                <div uib-accordion-group heading="{{ 'EVENT.FILE_ALERT.HEADLINE'|translate }}" is-open="false" is-disabled="false">
+                    <ul class="file-errors">
+                        <li class="file-error" ng-repeat="file in invalidPhotos">
+                            <div class="error-message" ng-show="!file.sizeValid && file.typeValid" ng-bind="file.name + ' - ' + ('EVENT.FILE_ALERT.SIZE'|translate)"></div>
+                            <div class="error-message" ng-show="!file.typeValid" ng-bind="file.name + ' - ' + ('EVENT.FILE_ALERT.TYPE'|translate)"></div>
+                            <div class="error-message" ng-show="file.typeValid && file.typeValid" ng-bind="file.name + ' - ' + ('EVENT.FILE_ALERT.UNKNOWN'|translate)"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row event-actions" ng-show="event.photos.length > 0">
+        <div class="col-md-12">
+            <div class="container-upload-input pull-left">
+                <label for="file-upload" class="btn btn-primary" ng-bind="'EVENT.EVENT_PHOTOS.UPLOAD'|translate"></label>
+                <input id="file-upload" type="file" accept="image/*" multiple="true" custom-on-change="filesSelected" />
+            </div>
+            <div class="pull-right" ng-if="userHasRightsToEdit">
+                <button type="button" class="btn btn-danger" ng-show="photoEditButtonEnabled && photosSelected > 0" ng-click="deletePhotos()" ng-bind="'EVENT.EVENT_PHOTOS.DELETE'|translate"></button>
+                <button type="button" class="btn btn-primary" ng-class="{'active' : photoEditButtonEnabled}" ng-click="enableEdit()" ng-bind="'EVENT.EVENT_PHOTOS.EDIT'|translate"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row event-photos" image-dropzone dropped-files="droppedFiles">
+        <div ng-show="showPhotoPlaceholder && event.photos.length < 1" class="jumbotron photos-placeholder">
+            <div class="h1" ng-bind="'EVENT.EVENT_PHOTOS.PLACEHOLDER.HEADLINE'|translate"></div>
+            <p ng-bind="'EVENT.EVENT_PHOTOS.PLACEHOLDER.TEXT'|translate"></p>
+            <div class="container-upload-input">
+                <label for="file-upload" class="btn btn-primary" ng-bind="'EVENT.EVENT_PHOTOS.UPLOAD'|translate"></label>
+                <input id="file-upload" type="file" accept="image/*" multiple="true" custom-on-change="filesSelected" />
+            </div>
+        </div>
+        <div ng-show="event.photos || photosToUpload">
+            <div class="col-xs-4 col-sm-4 col-md-4" ng-repeat="photo in event.photos track by $index">
+                <a href="" ng-click="photoAction($index)">
+                    <span class="spinner-container" ng-show="photo.pending"><img class="spinner-img" src="/pix/spinner.gif" /></span>
+                    <button class="button upload-retry-button" ng-show="photo.uploadFailed"><span class="glyphicon glyphicon-repeat" ng-click="retryUpload(photo)"></span></button>
+                    <img ng-if="photo.img" ng-class="{'selected' : (photo.isSelected && photoEditButtonEnabled), 'upload-failed': photo.uploadFailed}" class="img-responsive" ng-src={{photo.img}} />
+                    <img ng-if="!photo.img" ng-class="{'selected' : photo.isSelected && photoEditButtonEnabled}" class="img-responsive" ng-src={{photo.url}} />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
